@@ -1,0 +1,425 @@
+/* CursorPreview.module.css */
+
+/* CSS Variables for CursorPreview Component */
+:global(html.light) {
+  --cursor-preview-border: rgba(255, 255, 255, 0.2);
+  --cursor-preview-subtitle: #4b5563;
+  --cursor-preview-bg: linear-gradient(to bottom right, #ecfdf5, #dbeafe, #faf5ff);
+  --cursor-preview-border-dashed: #d1d5db;
+  --cursor-preview-palette-icon: #9ca3af;
+  --cursor-preview-text: #4b5563;
+  --cursor-preview-value: #6b7280;
+  --cursor-preview-value-code: #059669;
+  --cursor-preview-info-border: rgba(255, 255, 255, 0.2);
+  --cursor-preview-info-title: #111827;
+  --cursor-preview-description: #4b5563;
+  --cursor-preview-code-bg: linear-gradient(to right, #f8fafc, #f1f5f9);
+  --cursor-preview-code-border: #e2e8f0;
+  --cursor-preview-code-text: #1f2937;
+  --cursor-preview-reset-bg: linear-gradient(to right, #e5e7eb, #d1d5db);
+  --cursor-preview-reset-hover: linear-gradient(to right, #d1d5db, #9ca3af);
+  --cursor-preview-reset-text: #374151;
+}
+
+:global(html.dark) {
+  --cursor-preview-border: rgba(71, 85, 105, 0.5);
+  --cursor-preview-subtitle: #9ca3af;
+  --cursor-preview-bg: linear-gradient(to bottom right, #374151, #4b5563, #374151);
+  --cursor-preview-border-dashed: #4b5563;
+  --cursor-preview-palette-icon: #6b7280;
+  --cursor-preview-text: #9ca3af;
+  --cursor-preview-value: #6b7280;
+  --cursor-preview-value-code: #10b981;
+  --cursor-preview-info-border: rgba(71, 85, 105, 0.5);
+  --cursor-preview-info-title: #e2e8f0;
+  --cursor-preview-description: #9ca3af;
+  --cursor-preview-code-bg: linear-gradient(to right, #1f2937, #374151);
+  --cursor-preview-code-border: #4b5563;
+  --cursor-preview-code-text: #e2e8f0;
+  --cursor-preview-reset-bg: linear-gradient(to right, #4b5563, #374151);
+  --cursor-preview-reset-hover: linear-gradient(to right, #6b7280, #4b5563);
+  --cursor-preview-reset-text: #e2e8f0;
+}
+
+.container {
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--cursor-preview-border);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  animation: slideInUp 0.6s ease-out;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .content {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.leftSection {
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.iconContainer {
+  position: relative;
+}
+
+.zapIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #10b981;
+}
+
+.iconGlow {
+  position: absolute;
+  inset: 0;
+  background-color: #10b981;
+  border-radius: 50%;
+  filter: blur(4px);
+  opacity: 0.3;
+  animation: pulse 2s infinite;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #059669, #2563eb);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  color: var(--cursor-preview-subtitle);
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.previewArea {
+  position: relative;
+  width: 100%;
+  height: 14rem;
+  background: var(--cursor-preview-bg);
+  border-radius: 1rem;
+  border: 2px dashed var(--cursor-preview-border-dashed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.previewArea:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+}
+
+.particle1 {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #10b981;
+  border-radius: 50%;
+  animation: bounce 1s infinite;
+}
+
+.particle2 {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 0.25rem;
+  height: 0.25rem;
+  background-color: #3b82f6;
+  border-radius: 50%;
+  animation: bounce 1s infinite;
+  animation-delay: 0.5s;
+}
+
+.particle3 {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 2rem;
+  width: 0.375rem;
+  height: 0.375rem;
+  background-color: #a855f7;
+  border-radius: 50%;
+  animation: bounce 1s infinite;
+  animation-delay: 1s;
+}
+
+.particle4 {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 0.25rem;
+  height: 0.25rem;
+  background-color: #ec4899;
+  border-radius: 50%;
+  animation: bounce 1s infinite;
+  animation-delay: 1.5s;
+}
+
+.previewContent {
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+.previewContentHovered {
+  transform: scale(1.1);
+}
+
+.paletteContainer {
+  position: relative;
+}
+
+.paletteIcon {
+  width: 4rem;
+  height: 4rem;
+  color: var(--cursor-preview-palette-icon);
+  margin: 0 auto 1rem;
+  transition: all 0.3s ease;
+}
+
+.previewArea:hover .paletteIcon {
+  color: #10b981;
+}
+
+.sparkleIcon {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #10b981;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.sparkleIconVisible {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.previewText {
+  color: var(--cursor-preview-text);
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.cursorValue {
+  font-size: 0.875rem;
+  color: var(--cursor-preview-value);
+}
+
+.cursorValueCode {
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--cursor-preview-value-code);
+}
+
+.rightSection {
+  width: 100%;
+  animation: slideInRight 0.6s ease-out;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+@media (min-width: 1024px) {
+  .rightSection {
+    width: auto;
+  }
+}
+
+.infoPanel {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border: 1px solid var(--cursor-preview-info-border);
+}
+
+.infoHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.statusDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #10b981;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.infoTitle {
+  font-weight: 600;
+  color: var(--cursor-preview-info-title);
+}
+
+.cursorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cursorName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #059669, #2563eb);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.cursorDescription {
+  font-size: 0.875rem;
+  color: var(--cursor-preview-description);
+  line-height: 1.6;
+}
+
+.codeBlock {
+  position: relative;
+}
+
+.code {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--cursor-preview-code-bg);
+  border: 1px solid var(--cursor-preview-code-border);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-family: monospace;
+  color: var(--cursor-preview-code-text);
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.copyButton {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(to right, #10b981, #059669);
+  color: white;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.copyButton:hover {
+  background: linear-gradient(to right, #059669, #047857);
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.copyIcon {
+  transition: transform 0.3s ease;
+}
+
+.copyButton:hover .copyIcon {
+  transform: scale(1.1);
+}
+
+.resetButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--cursor-preview-reset-bg);
+  color: var(--cursor-preview-reset-text);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.resetButton:hover {
+  background: var(--cursor-preview-reset-hover);
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.resetIcon {
+  transition: transform 0.3s ease;
+}
+
+.resetButton:hover .resetIcon {
+  transform: rotate(180deg);
+}
+
+/* Global Keyframe Animations */
+@keyframes slideInUp{
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25%);
+  }
+}

@@ -1,0 +1,116 @@
+/* Toast.module.css */
+
+/* CSS Variables for theme colors */
+:global(html.light) {
+  --toast-border-color: rgba(255, 255, 255, 0.2);
+  --toast-backdrop-filter: blur(12px);
+}
+
+:global(html.dark) {
+  --toast-border-color: rgba(71, 85, 105, 0.5);
+  --toast-backdrop-filter: blur(12px);
+}
+
+.toast {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  backdrop-filter: var(--toast-backdrop-filter);
+  -webkit-backdrop-filter: var(--toast-backdrop-filter);
+  border: 1px solid var(--toast-border-color);
+}
+
+.toastVisible {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.toastHidden {
+  opacity: 0;
+  transform: translateX(100%) scale(0.95);
+}
+
+.toastSuccess {
+  background: linear-gradient(to right, #10b981, #059669);
+  color: white;
+}
+
+.toastError {
+  background: linear-gradient(to right, #ef4444, #dc2626);
+  color: white;
+}
+
+.iconContainer {
+  position: relative;
+}
+
+.successIcon {
+  animation: bounce 1s infinite;
+}
+
+.errorIcon {
+  animation: pulse 2s infinite;
+}
+
+.iconGlow {
+  position: absolute;
+  inset: 0;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: ping 1s infinite;
+}
+
+.message {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.closeButton {
+  margin-left: 0.5rem;
+  padding: 0.375rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25%);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

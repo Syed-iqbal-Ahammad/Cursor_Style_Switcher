@@ -1,0 +1,213 @@
+/* SearchBar.module.css */
+
+/* CSS Variables for theme colors */
+:global(html.light) {
+  --search-icon-color: black;
+  --search-input-border: rgba(255, 255, 255, 0.2);
+  --search-input-color: #111827;
+  --search-placeholder-color: #6b7280;
+  --filter-icon-color: black;
+  --filter-select-border: rgba(255, 255, 255, 0.2);
+  --filter-select-color: #111827;
+  --filter-option-bg: white;
+  --chevron-icon-color: #9ca3af;
+}
+
+:global(html.dark) {
+  --search-icon-color: white;
+  --search-input-border: rgba(71, 85, 105, 0.5);
+  --search-input-color: #e2e8f0;
+  --search-placeholder-color: #9ca3af;
+  --filter-icon-color: white;
+  --filter-select-border: rgba(71, 85, 105, 0.5);
+  --filter-select-color: #e2e8f0;
+  --filter-option-bg: #1f2937;
+  --chevron-icon-color: #6b7280;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  animation: slideInUp 0.6s ease-out;
+  animation-delay: 0.1s;
+  animation-fill-mode: both;
+}
+
+@media (min-width: 640px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+.searchGroup {
+  position: relative;
+  flex: 1;
+}
+
+.searchGlow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #10b981, #3b82f6);
+  border-radius: 0.75rem;
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.searchGroup:hover .searchGlow {
+  opacity: 0.2;
+}
+
+.searchWrapper {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--search-icon-color);
+  transition: color 0.3s ease;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.searchGroup:focus-within .searchIcon {
+  color: #10b981;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--search-input-border);
+  transition: all 0.3s ease;
+  color: var(--search-input-color);
+  background: transparent;
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: var(--search-placeholder-color);
+}
+
+.searchInput:focus {
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5);
+  border-color: rgba(16, 185, 129, 0.5);
+}
+
+.searchInput:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.searchInput:focus {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.sparkleIcon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  color: #10b981;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.searchGroup:focus-within .sparkleIcon {
+  opacity: 1;
+}
+
+.filterGroup {
+  position: relative;
+}
+
+.filterGlow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #a855f7, #ec4899);
+  border-radius: 0.75rem;
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.filterGroup:hover .filterGlow {
+  opacity: 0.2;
+}
+
+.filterWrapper {
+  position: relative;
+}
+
+.filterIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--filter-icon-color);
+  transition: color 0.3s ease;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.filterGroup:focus-within .filterIcon {
+  color: #a855f7;
+}
+
+.filterSelect {
+  padding: 1rem 2rem 1rem 3rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--filter-select-border);
+  transition: all 0.3s ease;
+  color: var(--filter-select-color);
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  min-width: 12rem;
+  outline: none;
+}
+
+.filterSelect:focus {
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.5);
+  border-color: rgba(168, 85, 247, 0.5);
+}
+
+.filterSelect:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.filterSelect:focus {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.filterSelect option {
+  background: var(--filter-option-bg);
+}
+
+.chevronIcon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: 1rem;
+  height: 1rem;
+  color: var(--chevron-icon-color);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,145 @@
+/* CursorGrid.module.css */
+
+/* CSS Variables */
+:global(html.light) {
+  --empty-icon-glow-start: #9ca3af;
+  --empty-icon-glow-end: #4b5563;
+  --empty-icon-bg-start: #f3f4f6;
+  --empty-icon-bg-end: #e5e7eb;
+  --empty-icon-color: #9ca3af;
+  --empty-title-color: #9ca3af;
+  --empty-description-color: #4b5563;
+  --empty-frown-color: #d1d5db;
+}
+
+:global(html.dark) {
+  --empty-icon-glow-start: #9ca3af;
+  --empty-icon-glow-end: #4b5563;
+  --empty-icon-bg-start: #374151;
+  --empty-icon-bg-end: #4b5563;
+  --empty-icon-color: #6b7280;
+  --empty-title-color: #6b7280;
+  --empty-description-color: #9ca3af;
+  --empty-frown-color: #4b5563;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.gridItem {
+  animation: scaleIn 0.4s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 4rem 0;
+  animation: slideInUp 0.6s ease-out;
+}
+
+.emptyIconContainer {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.emptyIconGlow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--empty-icon-glow-start), var(--empty-icon-glow-end));
+  border-radius: 50%;
+  filter: blur(8px);
+  opacity: 0.3;
+}
+
+.emptyIconWrapper {
+  position: relative;
+  padding: 1rem;
+  background: linear-gradient(to right, var(--empty-icon-bg-start), var(--empty-icon-bg-end));
+  border-radius: 50%;
+}
+
+.emptyIcon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--empty-icon-color);
+}
+
+.emptyTitle {
+  color: var(--empty-title-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.emptyDescription {
+  color: var(--empty-description-color);
+  font-size: 1.125rem;
+}
+
+.emptyFrownContainer {
+  margin-top: 1.5rem;
+}
+
+.emptyFrownIcon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--empty-frown-color);
+  margin: 0 auto;
+  animation: bounce 1s infinite;
+}
+
+/* Keyframe Animations */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25%);
+  }
+}

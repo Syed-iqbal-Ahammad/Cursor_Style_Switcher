@@ -1,0 +1,181 @@
+/* CSS Variables for Light and Dark Themes */
+:global(html.light) {
+  /* Light theme colors */
+  --bg-gradient: linear-gradient(to bottom right, #f8fafc, #dbeafe, #faf5ff);
+  --title-gradient: linear-gradient(to right, #111827, #4b5563);
+  --filter-text-color: #6b7280;
+  --search-tag-bg: #d1fae5;
+  --search-tag-text: #047857;
+  --category-tag-bg: #e9d5ff;
+  --category-tag-text: #7c3aed;
+  
+  /* Background blur elements */
+  --bg-element-1: rgba(16, 185, 129, 0.1);
+  --bg-element-2: rgba(59, 130, 246, 0.1);
+  --bg-element-3: rgba(147, 51, 234, 0.1);
+}
+
+:global(html.dark) {
+  /* Dark theme colors */
+  --bg-gradient: linear-gradient(to bottom right, #111827, #1f2937, #111827);
+  --title-gradient: linear-gradient(to right, #ffffff, #d1d5db);
+  --filter-text-color: #9ca3af;
+  --search-tag-bg: rgba(16, 185, 129, 0.3);
+  --search-tag-text: #6ee7b7;
+  --category-tag-bg: rgba(147, 51, 234, 0.3);
+  --category-tag-text: #c4b5fd;
+  
+  /* Background blur elements */
+  --bg-element-1: rgba(16, 185, 129, 0.1);
+  --bg-element-2: rgba(59, 130, 246, 0.1);
+  --bg-element-3: rgba(147, 51, 234, 0.1);
+}
+
+/* Default root variables for animations and timing */
+:global(:root) {
+  --transition-all: all 0.5s ease;
+  --animation-pulse: pulse 2s infinite;
+  --animation-slide-up: slideInUp 0.6s ease-out;
+}
+
+/* App Component Styles */
+.container {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  transition: var(--transition-all);
+}
+
+.backgroundElements {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.backgroundElement1 {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 16rem;
+  height: 16rem;
+  background-color: var(--bg-element-1);
+  border-radius: 50%;
+  filter: blur(48px);
+  animation: var(--animation-pulse);
+}
+
+.backgroundElement2 {
+  position: absolute;
+  top: 75%;
+  right: 25%;
+  width: 24rem;
+  height: 24rem;
+  background-color: var(--bg-element-2);
+  border-radius: 50%;
+  filter: blur(48px);
+  animation: var(--animation-pulse);
+  animation-delay: 2s;
+}
+
+.backgroundElement3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12rem;
+  height: 12rem;
+  background-color: var(--bg-element-3);
+  border-radius: 50%;
+  filter: blur(48px);
+  animation: var(--animation-pulse);
+  animation-delay: 4s;
+}
+
+.main {
+  position: relative;
+  z-index: 10;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .main {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.cursorsSection {
+  margin-bottom: 2rem;
+  animation: var(--animation-slide-up);
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+.cursorsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.cursorsTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--title-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.filterTags {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--filter-text-color);
+}
+
+.searchTag {
+  padding: 0.25rem 0.75rem;
+  background-color: var(--search-tag-bg);
+  color: var(--search-tag-text);
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
+.categoryTag {
+  padding: 0.25rem 0.75rem;
+  background-color: var(--category-tag-bg);
+  color: var(--category-tag-text);
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
+/* Keyframe Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
