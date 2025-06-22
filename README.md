@@ -6,7 +6,7 @@ A modern, interactive web app to explore, preview, and copy CSS cursor styles. B
 
 ## 🖱️ Demo
 
-![Cursor Style Switcher Screenshot](public/demo-screenshot.png) <!-- Add a screenshot if available -->
+
 
 ---
 
@@ -50,13 +50,13 @@ src/
     Toast.jsx
     Toast.module.css
   data/
-    cursors.js           # Cursor data and categories
+    cursors.js                    # Cursor data and categories
   hooks/
-    useLocalStorage.js   # Custom hook for persistent state
+    useLocalStorage.js            # Custom hook for persistent state
 public/
-  vite.svg               # Favicon
-  demo-screenshot.png    # (Optional) Demo screenshot
-index.html               # HTML template
+  cursor.png                      # Favicon
+  Cursor_Style_Switcher.mov       # Demo video
+index.html                        # HTML template
 ```
 
 ---
@@ -159,7 +159,7 @@ All cursor styles and categories are defined in [`src/data/cursors.js`](src/data
 
 ## 🌐 Links
 
-- [Live Demo](https://your-demo-url.com) <!-- Replace with your deployed URL -->
+- [Live Demo](https://cursor-style-switcher-rho.vercel.app/) 
 - [GitHub Repo](https://github.com/Syed-iqbal-Ahammad/Cursor_Style_Switcher)
 
 ---
