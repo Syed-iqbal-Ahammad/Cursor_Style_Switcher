@@ -6,7 +6,7 @@ A modern, interactive web app to explore, preview, and copy CSS cursor styles. B
 
 ## 🖱️ Demo
 
-
+https://github.com/Syed-iqbal-Ahammad/Cursor_Style_Switcher/raw/refs/heads/main/public/Cursor_Style_Switcher.mov
 
 ---
 
