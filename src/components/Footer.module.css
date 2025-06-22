@@ -56,6 +56,13 @@
   }
 }
 
+@media (min-width: 300px) and (max-width: 520px) { 
+  .madeWithText{
+    font-size: 0.9rem !important;
+  }
+ }
+
+
 .leftSection {
   display: flex;
   align-items: center;
